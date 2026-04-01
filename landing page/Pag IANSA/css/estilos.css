@@ -1,0 +1,615 @@
+/*
+ * IANSA - Bazar Solidário
+ * Paleta de cores baseada na logo IANSA
+ */
+
+/* --- Variáveis (Paleta suave - rosa pastel) --- */
+:root {
+    --cor-primaria: #2f2465;
+    --cor-primaria-hover: #df6596;
+    --cor-secundaria: #f2b1cf;
+    --cor-secundaria-hover: #df6596;
+    --cor-fundo: #faf7f8;
+    --cor-fundo-alt: #fff;
+    --cor-texto: #4a4a4a;
+    --cor-texto-claro: #6b6b6b;
+    --cor-branca: #ffffff;
+    --sombra-leve: 0 1px 8px rgba(0, 0, 0, 0.04);
+    --sombra-card: 0 2px 12px rgba(0, 0, 0, 0.05);
+    --sombra-card-hover: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --borda-radius: 10px;
+}
+
+/* --- Reset & Base --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Tipografia --- */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* --- Botões --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primario {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branca);
+}
+
+.btn-primario:hover {
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branca);
+}
+
+.btn-secundario:hover {
+    background-color: var(--cor-secundaria-hover);
+    transform: translateY(-2px);
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--cor-branca);
+    box-shadow: var(--sombra-leve);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-left: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cor-secundaria);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2em;
+    color: var(--cor-secundaria);
+    cursor: pointer;
+}
+
+/* --- Hero --- */
+.hero {
+    /* Overlay preto preserva as cores originais da imagem (não altera o tom) */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images-santo-antonio-de-posse.portalon.com.br/wp-content/uploads/2025/04/close-up-woman-checking-clothes_23-2148238088-1744391109.jpg");
+    background-size: cover;
+    background-position: center;
+    color: var(--cor-branca);
+    padding: 180px 0 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    color: var(--cor-branca);
+    font-size: 3em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero h1 img {
+    height: 60px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero .btn {
+    margin: 5px 10px;
+}
+
+/* --- Vitrine Bazar --- */
+#bazar-vitrine {
+    background-color: var(--cor-fundo-alt);
+}
+
+.vitrine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.produto-card {
+    background-color: var(--cor-branca);
+    border-radius: var(--borda-radius);
+    box-shadow: var(--sombra-card);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-card-hover);
+}
+
+.produto-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.produto-info {
+    padding: 20px;
+}
+
+.produto-info h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: var(--cor-texto);
+}
+
+.produto-info .categoria {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.produto-info .preco {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--cor-primaria);
+}
+
+/* --- Nossa História --- */
+#nossa-historia {
+    background-color: var(--cor-fundo);
+    padding: 40px 0;
+}
+
+#nossa-historia h2 {
+    margin-bottom: 28px;
+}
+
+.historia-content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 28px;
+    align-items: flex-start;
+}
+
+.historia-imagem {
+    max-width: 320px;
+    text-align: center;
+}
+
+.historia-imagem img {
+    max-width: 100%;
+    max-height: 240px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--borda-radius);
+    box-shadow: var(--sombra-card);
+}
+
+.historia-texto .texto-completo {
+    max-height: 280px;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out;
+}
+
+.historia-texto .texto-completo.aberto {
+    max-height: 2000px;
+}
+
+.historia-texto p {
+    margin-bottom: 1em;
+    font-size: 0.95em;
+}
+
+#btn-ler-mais {
+    margin-top: 12px;
+}
+
+/* --- Projetos --- */
+#projetos {
+    background-color: var(--cor-fundo-alt);
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.projeto-texto {
+    padding-right: 20px;
+}
+
+.projeto-imagem img {
+    width: 100%;
+    border-radius: var(--borda-radius);
+    box-shadow: var(--sombra-card);
+}
+
+/* --- Impacto --- */
+#impacto {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+    color: var(--cor-branca);
+    padding: 36px 0;
+}
+
+#impacto h2 {
+    color: var(--cor-branca);
+    margin-bottom: 24px;
+}
+
+.impacto-grid {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.impacto-item {
+    padding: 6px 16px;
+}
+
+.impacto-item h3 {
+    font-size: 2.2em;
+    color: var(--cor-branca);
+    margin-bottom: 4px;
+}
+
+.impacto-item p {
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+/* --- Como Ajudar --- */
+#ajudar {
+    background-color: var(--cor-fundo);
+}
+
+.ajuda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.ajuda-card {
+    background: var(--cor-branca);
+    padding: 30px;
+    border-radius: var(--borda-radius);
+    text-align: center;
+    box-shadow: var(--sombra-card);
+    transition: all 0.3s ease;
+}
+
+.ajuda-card:hover {
+    transform: translateY(-5px);
+}
+
+.ajuda-card .icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.ajuda-card:nth-child(3n+1) .icon { color: var(--cor-primaria); }
+.ajuda-card:nth-child(3n+2) .icon { color: var(--cor-secundaria); }
+.ajuda-card:nth-child(3n+3) .icon { color: var(--cor-primaria); }
+
+/* --- Voluntariado --- */
+#voluntariado {
+    background-color: var(--cor-fundo-alt);
+    text-align: center;
+}
+
+.voluntariado-imagem img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: var(--borda-radius);
+    box-shadow: var(--sombra-card);
+    margin: 0 auto 40px auto;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.form-voluntario {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--cor-fundo);
+    padding: 30px;
+    border-radius: var(--borda-radius);
+    box-shadow: var(--sombra-card);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    background-color: var(--cor-branca);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-voluntario .btn {
+    width: 100%;
+}
+
+.msg-sucesso {
+    display: none;
+    background: #d4edda;
+    color: #155724;
+    padding: 20px;
+    border-radius: var(--borda-radius);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+/* --- Localização --- */
+#local {
+    background-color: var(--cor-fundo);
+    text-align: center;
+}
+
+#local p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.mapa-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    height: 400px;
+    border-radius: var(--borda-radius);
+    box-shadow: var(--sombra-card);
+    overflow: hidden;
+}
+
+.mapa-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    position: relative;
+}
+
+.mapa-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(184, 107, 127, 0);
+    transition: background 0.3s ease;
+}
+
+.mapa-link:hover::after {
+    background: rgba(184, 107, 127, 0.08);
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- Rodapé --- */
+footer {
+    background: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo img {
+    height: 32px;
+    width: auto;
+    margin-right: 8px;
+    /* Logo nas cores originais (sem filtro) */
+}
+
+.social-links a {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-size: 1em;
+    margin: 0 8px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--cor-fundo);
+}
+
+footer p {
+    margin-top: 12px;
+    font-size: 0.85em;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .historia-content,
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+    .projetos-grid .projeto-imagem {
+        margin-top: 20px;
+        order: -1;
+    }
+    .projeto-texto { padding-right: 0; }
+    .historia-imagem {
+        margin-top: 16px;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ajuda-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    h2 { font-size: 1.8em; }
+
+    header .container { flex-wrap: wrap; }
+    .menu-toggle { display: block; order: 3; }
+    header .btn { order: 2; padding: 8px 15px; font-size: 0.8em; }
+    .logo { order: 1; }
+    nav {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+        order: 4;
+    }
+    nav.active { max-height: 500px; }
+    nav ul { flex-direction: column; padding: 20px 0 10px 0; }
+    nav li { margin-left: 0; text-align: center; }
+    nav a { display: block; padding: 10px 0; }
+
+    .hero { padding: 120px 0 60px 0; }
+    .hero h1 { font-size: 2.2em; }
+    .hero h1 img { height: 40px; margin-right: 10px; }
+
+    .impacto-grid { flex-direction: column; gap: 16px; }
+}
